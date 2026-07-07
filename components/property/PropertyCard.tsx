@@ -11,7 +11,7 @@ export function PropertyCard({ imovel }: { imovel: ImovelCompleto }) {
 
   return (
     <Link
-      href={`/imovel/${imovel.slug}`}
+      href={`/imoveis/${imovel.slug}`}
       className="group block overflow-hidden rounded-sm border border-ink/10 bg-white transition-shadow hover:shadow-lg"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-paper-dim">
