@@ -146,7 +146,6 @@ export async function criarImovel(dados: ImovelFormData) {
   const supabase = await createClient();
   const payload = await montarPayload(dados);
 
-  // Slug temporário para satisfazer o NOT NULL
   const slugTemporario = `temp-${Date.now()}`;
 
   const { data: imovel, error } = await supabase
@@ -162,7 +161,6 @@ export async function criarImovel(dados: ImovelFormData) {
     throw new Error(`Erro ao criar imóvel: ${error.message}`);
   }
 
-  // Agora o banco já gerou o código automaticamente
   const slug = `${slugify(dados.titulo)}-${imovel.codigo.toLowerCase()}`;
 
   const { error: slugError } = await supabase
@@ -175,29 +173,20 @@ export async function criarImovel(dados: ImovelFormData) {
   }
 
   if (dados.caracteristicas.length > 0) {
-    const { error: caracteristicasError } = await supabase
-      .from("imovel_caracteristicas")
-      .insert(
-        dados.caracteristicas.map((cid) => ({
-          imovel_id: imovel.id,
-          caracteristica_id: cid,
-        }))
-      );
-
-    if (caracteristicasError) {
-      throw new Error(
-        `Erro ao salvar características: ${caracteristicasError.message}`
-      );
-    }
+    await supabase.from("imovel_caracteristicas").insert(
+      dados.caracteristicas.map((cid) => ({
+        imovel_id: imovel.id,
+        caracteristica_id: cid,
+      }))
+    );
   }
 
   revalidatePath("/admin/imoveis");
   redirect(`/admin/imoveis/${imovel.id}/editar`);
 }
 
-  revalidatePath("/admin/imoveis");
-  redirect(`/admin/imoveis/${imovel.id}/editar`);
-}
+
+export async function atualizarImovel(id: string, dados: ImovelFormData) {
 
 export async function atualizarImovel(id: string, dados: ImovelFormData) {
   const supabase = await createClient();
