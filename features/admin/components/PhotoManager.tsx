@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Star, Trash2, Upload } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { definirCapa, excluirImagem } from "@/app/admin/imoveis/actions";
+import { aplicarMarcaDagua } from "@/features/admin/lib/watermark";
 
 interface Imagem {
   id: string;
@@ -38,6 +39,9 @@ export function PhotoManager({
         const ext = file.name.split(".").pop();
         const path = `${imovelId}/${Date.now()}-${i}.${ext}`;
 
+  const arquivoComMarca = await aplicarMarcaDagua(file);
+
+        
         const { error: uploadError } = await supabase.storage
           .from("imoveis")
           .upload(path, file, { upsert: false });
