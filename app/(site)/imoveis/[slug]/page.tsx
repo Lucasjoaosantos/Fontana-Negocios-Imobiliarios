@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ChevronLeft, BedDouble, Bath, Car, Ruler, MapPin } from "lucide-react";
+import { ChevronLeft, BedDouble, Bath, Car, Ruler, Home, MapPin } from "lucide-react";
 import { getImovelPorSlug } from "@/services/imoveis";
 import { PropertyGallery } from "@/components/property/PropertyGallery";
 import { Badge } from "@/components/ui/Badge";
@@ -19,7 +19,8 @@ export default async function ImovelDetalhePage({
   const mensagemWhatsapp = `Olá! Estou interessado no imóvel "${imovel.titulo}" (código ${imovel.codigo}) e gostaria de mais informações.`;
 
   const specs = [
-    imovel.area_total ? { icon: Ruler, valor: `${imovel.area_total}m²`, label: "Área" } : null,
+    imovel.area_total ? { icon: Ruler, valor: `${imovel.area_total}m²`, label: "Área Terreno" } : null,
+    imovel.area_construida ? { icon: Home, valor: `${imovel.area_construida}m²`, label: "Área Construída" } : null,
     imovel.quartos ? { icon: BedDouble, valor: imovel.quartos, label: "Quartos" } : null,
     imovel.banheiros ? { icon: Bath, valor: imovel.banheiros, label: "Banheiros" } : null,
     imovel.vagas ? { icon: Car, valor: imovel.vagas, label: "Vagas" } : null,
