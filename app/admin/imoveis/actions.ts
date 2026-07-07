@@ -146,10 +146,15 @@ export async function criarImovel(dados: ImovelFormData) {
   const supabase = await createClient();
   const payload = await montarPayload(dados);
 
-  // O banco gera automaticamente o código (FT0001, FT0002...)
+  // Slug temporário para satisfazer o NOT NULL
+  const slugTemporario = `temp-${Date.now()}`;
+
   const { data: imovel, error } = await supabase
     .from("imoveis")
-    .insert(payload)
+    .insert({
+      ...payload,
+      slug: slugTemporario,
+    })
     .select("id, codigo")
     .single();
 
@@ -157,7 +162,7 @@ export async function criarImovel(dados: ImovelFormData) {
     throw new Error(`Erro ao criar imóvel: ${error.message}`);
   }
 
-  // Gera o slug usando o código criado pelo banco
+  // Agora o banco já gerou o código automaticamente
   const slug = `${slugify(dados.titulo)}-${imovel.codigo.toLowerCase()}`;
 
   const { error: slugError } = await supabase
@@ -166,7 +171,7 @@ export async function criarImovel(dados: ImovelFormData) {
     .eq("id", imovel.id);
 
   if (slugError) {
-    throw new Error(`Erro ao gerar slug: ${slugError.message}`);
+    throw new Error(`Erro ao atualizar slug: ${slugError.message}`);
   }
 
   if (dados.caracteristicas.length > 0) {
@@ -185,6 +190,10 @@ export async function criarImovel(dados: ImovelFormData) {
       );
     }
   }
+
+  revalidatePath("/admin/imoveis");
+  redirect(`/admin/imoveis/${imovel.id}/editar`);
+}
 
   revalidatePath("/admin/imoveis");
   redirect(`/admin/imoveis/${imovel.id}/editar`);
