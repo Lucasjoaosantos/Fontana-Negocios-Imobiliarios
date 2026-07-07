@@ -307,7 +307,7 @@ export function ImovelForm({
               value={dados.cidade}
               onChange={(e) => set("cidade", e.target.value)}
               className={campoClasse}
-              placeholder="Chapecó"
+              placeholder="São Carlos"
             />
           </div>
           <div>
@@ -318,7 +318,7 @@ export function ImovelForm({
               value={dados.uf}
               onChange={(e) => set("uf", e.target.value.toUpperCase())}
               className={campoClasse}
-              placeholder="SC"
+              placeholder="SP"
             />
           </div>
           <div>
