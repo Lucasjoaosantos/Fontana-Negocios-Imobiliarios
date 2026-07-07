@@ -1,14 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BedDouble, Bath, Car, Ruler } from "lucide-react";
+import { BedDouble, Bath, Car, Ruler, Home } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { formatarPreco, rotuloOperacao } from "@/lib/utils";
 import type { ImovelCompleto } from "@/types/database";
-
 export function PropertyCard({ imovel }: { imovel: ImovelCompleto }) {
   const capa =
     imovel.imagens.find((img) => img.capa) ?? imovel.imagens[0] ?? null;
-
   return (
     <Link
       href={`/imoveis/${imovel.slug}`}
@@ -36,7 +34,6 @@ export function PropertyCard({ imovel }: { imovel: ImovelCompleto }) {
           {imovel.codigo}
         </span>
       </div>
-
       <div className="p-4">
         <p className="font-mono-data text-xs uppercase tracking-wide text-ink/50">
           {imovel.bairro?.nome ?? ""}
@@ -49,12 +46,17 @@ export function PropertyCard({ imovel }: { imovel: ImovelCompleto }) {
         <p className="font-display mt-2 text-xl font-semibold text-navy">
           {formatarPreco(imovel.preco)}
         </p>
-
-        <div className="mt-4 flex items-center gap-4 border-t border-ink/10 pt-3 text-sm text-ink/70">
+        <div className="mt-4 flex flex-wrap items-center gap-4 border-t border-ink/10 pt-3 text-sm text-ink/70">
           {imovel.area_total ? (
             <span className="flex items-center gap-1.5">
               <Ruler size={15} className="text-brass" />
               {imovel.area_total}m²
+            </span>
+          ) : null}
+          {imovel.area_construida ? (
+            <span className="flex items-center gap-1.5">
+              <Home size={15} className="text-brass" />
+              {imovel.area_construida}m²
             </span>
           ) : null}
           {imovel.quartos ? (
