@@ -75,14 +75,14 @@ async function acharOuCriarCondominio(nome: string, bairroId: string) {
   return novo.id;
 }
 
-async function proximoCodigo() {
-  const supabase = await createClient();
-  const { count } = await supabase
-    .from("imoveis")
-    .select("*", { count: "exact", head: true });
-  const numero = (count ?? 0) + 1;
-  return `FT${String(numero).padStart(4, "0")}`;
-}
+//async function proximoCodigo() {
+ // const supabase = await createClient();
+  //const { count } = await supabase
+   // .from("imoveis")
+    //.select("*", { count: "exact", head: true });
+  //const numero = (count ?? 0) + 1;
+  //return `FT${String(numero).padStart(4, "0")}`;
+//}
 
 export interface ImovelFormData {
   titulo: string;
@@ -145,24 +145,45 @@ async function montarPayload(dados: ImovelFormData) {
 export async function criarImovel(dados: ImovelFormData) {
   const supabase = await createClient();
   const payload = await montarPayload(dados);
-  const codigo = await proximoCodigo();
-  const slug = `${slugify(dados.titulo)}-${codigo.toLowerCase()}`;
 
+  // O banco gera automaticamente o código (FT0001, FT0002...)
   const { data: imovel, error } = await supabase
     .from("imoveis")
-    .insert({ ...payload, codigo, slug })
-    .select("id")
+    .insert(payload)
+    .select("id, codigo")
     .single();
 
-  if (error) throw new Error(`Erro ao criar imóvel: ${error.message}`);
+  if (error) {
+    throw new Error(`Erro ao criar imóvel: ${error.message}`);
+  }
+
+  // Gera o slug usando o código criado pelo banco
+  const slug = `${slugify(dados.titulo)}-${imovel.codigo.toLowerCase()}`;
+
+  const { error: slugError } = await supabase
+    .from("imoveis")
+    .update({ slug })
+    .eq("id", imovel.id);
+
+  if (slugError) {
+    throw new Error(`Erro ao gerar slug: ${slugError.message}`);
+  }
 
   if (dados.caracteristicas.length > 0) {
-    await supabase.from("imovel_caracteristicas").insert(
-      dados.caracteristicas.map((cid) => ({
-        imovel_id: imovel.id,
-        caracteristica_id: cid,
-      }))
-    );
+    const { error: caracteristicasError } = await supabase
+      .from("imovel_caracteristicas")
+      .insert(
+        dados.caracteristicas.map((cid) => ({
+          imovel_id: imovel.id,
+          caracteristica_id: cid,
+        }))
+      );
+
+    if (caracteristicasError) {
+      throw new Error(
+        `Erro ao salvar características: ${caracteristicasError.message}`
+      );
+    }
   }
 
   revalidatePath("/admin/imoveis");
