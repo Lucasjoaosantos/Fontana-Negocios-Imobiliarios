@@ -194,7 +194,7 @@ export function ImovelForm({
               value={dados.valorCondominio}
               onChange={(e) => set("valorCondominio", e.target.value)}
               className={campoClasse}
-              placeholder="380"
+              placeholder="380,00"
               inputMode="decimal"
             />
           </div>
@@ -204,7 +204,7 @@ export function ImovelForm({
               value={dados.valorIptu}
               onChange={(e) => set("valorIptu", e.target.value)}
               className={campoClasse}
-              placeholder="120"
+              placeholder="120,00"
               inputMode="decimal"
             />
           </div>
