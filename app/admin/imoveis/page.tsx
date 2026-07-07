@@ -39,13 +39,16 @@ export default async function AdminImoveisPage({
 
       <div className="mb-8 flex items-center justify-between">
         <h1 className="font-display text-2xl font-semibold text-ink">Imóveis</h1>
-        <Link
-          href="/admin/imoveis/novo"
-          className="flex items-center gap-2 rounded-sm bg-navy px-4 py-2.5 font-display text-sm font-medium text-white hover:bg-ink"
-        >
-          <Plus size={16} />
-          Novo imóvel
-        </Link>
+        <div className="flex items-center gap-3">
+          <BotaoMarcaDagua />
+          <Link
+            href="/admin/imoveis/novo"
+            className="flex items-center gap-2 rounded-sm bg-navy px-4 py-2.5 font-display text-sm font-medium text-white hover:bg-ink"
+          >
+            <Plus size={16} />
+            Novo imóvel
+          </Link>
+        </div>
       </div>
 
       {imoveis.length === 0 ? (
