@@ -4,6 +4,8 @@ import { Plus, Pencil } from "lucide-react";
 import { getImoveisAdmin } from "@/services/admin";
 import { formatarPreco } from "@/lib/utils";
 import { BotaoExcluirImovel } from "@/features/admin/components/BotaoExcluirImovel";
+import { BotaoMarcaDagua } from "@/features/admin/components/BotaoMarcaDagua";
+
 
 const statusLabel: Record<string, string> = {
   disponivel: "Disponível",
