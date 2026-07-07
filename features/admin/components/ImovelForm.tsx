@@ -43,7 +43,7 @@ export function ImovelForm({
     banheiros: valoresIniciais?.banheiros ?? "0",
     vagas: valoresIniciais?.vagas ?? "0",
     cidade: valoresIniciais?.cidade ?? "",
-    uf: valoresIniciais?.uf ?? "SC",
+    uf: valoresIniciais?.uf ?? "SP",
     bairro: valoresIniciais?.bairro ?? "",
     condominio: valoresIniciais?.condominio ?? "",
     endereco: valoresIniciais?.endereco ?? "",
