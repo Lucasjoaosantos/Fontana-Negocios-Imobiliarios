@@ -18,7 +18,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-navy text-white">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 items-center px-4 py-2 sm:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
         <Link
           href="/"
           className="flex items-center"
@@ -35,7 +35,7 @@ export function Header() {
         </Link>
 
         {/* Menu Desktop */}
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center justify-center gap-8 lg:flex">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -59,7 +59,7 @@ export function Header() {
         </nav>
 
         {/* Ações Desktop */}
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center justify-end gap-5 lg:flex">
           <a
             href={linkWhatsapp()}
             target="_blank"
@@ -78,7 +78,7 @@ export function Header() {
 
         {/* Botão Mobile */}
         <button
-          className="p-2 text-white lg:hidden"
+          className="justify-self-end p-2 text-white lg:hidden"
           aria-label={open ? "Fechar menu" : "Abrir menu"}
           onClick={() => setOpen((v) => !v)}
         >
