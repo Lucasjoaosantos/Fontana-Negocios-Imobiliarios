@@ -187,8 +187,6 @@ export async function criarImovel(dados: ImovelFormData) {
 
 
 export async function atualizarImovel(id: string, dados: ImovelFormData) {
-
-export async function atualizarImovel(id: string, dados: ImovelFormData) {
   const supabase = await createClient();
   const payload = await montarPayload(dados);
 
