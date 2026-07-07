@@ -117,23 +117,25 @@ export default async function ImovelDetalhePage({
             <p className="font-display text-2xl font-semibold text-navy">
               {formatarPreco(imovel.preco)}
             </p>
-            {(imovel.valor_condominio || imovel.valor_iptu) && (
-              <div className="mt-2 space-y-1 text-sm text-ink/60">
-                {imovel.valor_condominio ? (
-                  <p>Condomínio: {formatarPreco(imovel.valor_condominio)}</p>
-                ) : null}
-                {imovel.valor_iptu ? <p>IPTU: {formatarPreco(imovel.valor_iptu)}</p> : null}
-              </div>
-            )}
+{(imovel.valor_condominio || imovel.valor_iptu) && (
+  <div className="mt-2 space-y-1 text-sm text-ink/60">
+    {imovel.valor_condominio ? (
+      <p>Condomínio: {formatarPreco(imovel.valor_condominio)}</p>
+    ) : null}
+    {imovel.valor_iptu ? (
+      <p>IPTU: {formatarPreco(imovel.valor_iptu)}</p>
+    ) : null}
+  </div>
+)}
 
-            
-              href={linkWhatsapp(mensagemWhatsapp)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 flex w-full items-center justify-center rounded-sm bg-[#25D366] px-6 py-3.5 font-display text-sm font-semibold text-white transition-colors hover:brightness-95"
-            >
-              Falar no WhatsApp
-            </a>
+<a
+  href={linkWhatsapp(mensagemWhatsapp)}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-6 flex w-full items-center justify-center rounded-sm bg-[#25D366] px-6 py-3.5 font-display text-sm font-semibold text-white transition-colors hover:brightness-95"
+>
+  Falar no WhatsApp
+</a>
 
             <p className="mt-3 text-center text-xs text-ink/40">
               Fale direto com um corretor sobre este imóvel específico.
