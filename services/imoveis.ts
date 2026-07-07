@@ -45,14 +45,13 @@ export async function getImoveisLancamentos(limite = 8): Promise<ImovelCompleto[
   const { data, error } = await supabase
     .from("imoveis")
     .select(SELECT_COMPLETO)
-    .eq("operacao", "lancamento")
     .eq("destaque", false)
     .neq("status", "inativo")
     .order("created_at", { ascending: false })
     .limit(limite);
 
   if (error) {
-    console.error("Erro ao buscar imóveis em lançamento:", error.message);
+    console.error("Erro ao buscar imóveis para o carrossel:", error.message);
     return [];
   }
   return (data ?? []).map(normalizar);
