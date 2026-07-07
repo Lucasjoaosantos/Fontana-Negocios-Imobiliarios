@@ -123,7 +123,7 @@ export function Footer() {
 
       <div className="border-t border-white/10 py-5">
         <p className="mx-auto max-w-7xl px-4 text-center text-xs text-white/50 sm:px-6 lg:px-8">
-          © {new Date().getFullYear()} Fontana Negócios Imobiliários. Todos os direitos reservados.
+          © {new Date().getFullYear()} Fontana Negócios Imobiliários. Todos os direitos reservados. - CRECI SP 274725-F
         </p>
       </div>
     </footer>
