@@ -74,20 +74,17 @@ export function Hero() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-navy/0 to-navy/0 lg:bg-gradient-to-l lg:from-navy/0 lg:via-navy/0 lg:to-navy/10" />
 
-          {/* Faixa de citação: ocupa toda a largura inferior da foto,
-              cobrindo qualquer vão que sobre por trás da imagem */}
-          <div className="absolute inset-x-0 bottom-0 z-10 border-t border-white/10 bg-navy/95 px-5 py-4 shadow-xl backdrop-blur sm:px-8 sm:py-5">
-            <div className="ml-auto max-w-xs sm:max-w-sm">
-              <span className="font-display block text-2xl leading-none text-brass-light">
-                &ldquo;
-              </span>
-              <p className="font-display -mt-1 text-xs text-white/85 sm:text-sm">
-                Nosso compromisso é transformar planos em conquistas reais.
-              </p>
-              <p className="font-display mt-2 text-sm italic text-brass-light">
-                Fontana
-              </p>
-            </div>
+          {/* Cartão de citação, grudado no canto inferior */}
+          <div className="absolute bottom-4 right-4 left-4 z-10 rounded-sm border border-white/10 bg-navy/95 p-4 shadow-xl backdrop-blur sm:bottom-6 sm:right-6 sm:left-auto sm:w-[340px]">
+            <span className="font-display block text-2xl leading-none text-brass-light">
+              &ldquo;
+            </span>
+            <p className="font-display -mt-1 text-xs text-white/85 sm:text-sm">
+              Nosso compromisso é transformar planos em conquistas reais.
+            </p>
+            <p className="font-display mt-2 text-sm italic text-brass-light">
+              Fontana
+            </p>
           </div>
         </div>
       </div>
