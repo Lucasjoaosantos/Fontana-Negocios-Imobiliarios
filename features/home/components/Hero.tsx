@@ -74,21 +74,20 @@ export function Hero() {
               sizes="(max-width: 1024px) 100vw, 45vw"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-navy/0 to-navy/0 lg:bg-gradient-to-l lg:from-navy/0 lg:via-navy/0 lg:to-navy/10" />
-          </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/0 to-navy/0 lg:bg-gradient-to-l lg:from-navy/0 lg:via-navy/0 lg:to-navy/10" />
 
-          {/* Cartão de citação: no mobile fica ABAIXO da foto (fluxo normal);
-              a partir do sm, vira overlay flutuante no canto da foto */}
-          <div className="relative z-10 mx-4 -mt-8 rounded-sm border border-white/10 bg-navy/95 p-4 shadow-xl backdrop-blur sm:absolute sm:inset-x-6 sm:bottom-6 sm:mx-0 sm:mt-0 sm:left-auto sm:w-[350px]">
-            <span className="font-display block text-2xl leading-none text-brass-light">
-              &ldquo;
-            </span>
-            <p className="font-display -mt-1 text-xs text-white/85 sm:text-sm">
-              Nosso compromisso é transformar planos em conquistas reais.
-            </p>
-            <p className="font-display mt-2 text-sm italic text-brass-light">
-              Fontana
-            </p>
+            {/* Cartão de citação, flutuando sobre a foto em qualquer tela */}
+            <div className="absolute bottom-4 left-4 right-4 z-10 rounded-sm border border-white/10 bg-navy/95 p-4 shadow-xl backdrop-blur sm:bottom-6 sm:right-6 sm:left-auto sm:w-[350px]">
+              <span className="font-display block text-2xl leading-none text-brass-light">
+                &ldquo;
+              </span>
+              <p className="font-display -mt-1 text-xs text-white/85 sm:text-sm">
+                Nosso compromisso é transformar planos em conquistas reais.
+              </p>
+              <p className="font-display mt-2 text-sm italic text-brass-light">
+                Fontana
+              </p>
+            </div>
           </div>
         </div>
       </div>
