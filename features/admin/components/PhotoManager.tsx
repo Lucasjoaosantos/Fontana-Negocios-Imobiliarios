@@ -42,9 +42,9 @@ export function PhotoManager({
   const arquivoComMarca = await aplicarMarcaDagua(file);
 
         
-        const { error: uploadError } = await supabase.storage
-          .from("imoveis")
-          .upload(path, file, { upsert: false });
+const { error: uploadError } = await supabase.storage
+  .from("imoveis")
+  .upload(path, arquivoComMarca, { upsert: false });
         if (uploadError) throw uploadError;
 
         const {
