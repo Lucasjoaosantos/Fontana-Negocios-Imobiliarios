@@ -50,7 +50,7 @@ export function Hero() {
             <SearchBar />
           </div>
 
-          <div className="mt-8 flex flex-col flex-wrap gap-6 sm:flex-row sm:gap-8">
+          <div className="mt-8 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
             {diferenciais.map(({ icon: Icon, titulo, descricao }) => (
               <div key={titulo} className="flex items-start gap-3">
                 <Icon size={20} className="mt-0.5 shrink-0 text-brass-light" />
