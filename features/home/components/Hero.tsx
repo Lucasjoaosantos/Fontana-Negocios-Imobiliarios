@@ -75,7 +75,7 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-navy/50 via-navy/0 to-navy/0 lg:bg-gradient-to-l lg:from-navy/0 lg:via-navy/0 lg:to-navy/10" />
 
           {/* Cartão de citação, grudado no canto inferior */}
-          <div className="absolute bottom-4 right-10 left-5 z-10 rounded-sm border border-white/10 bg-navy/95 p-4 shadow-xl backdrop-blur sm:bottom-6 sm:right-6 sm:left-auto sm:w-[340px]">
+          <div className="absolute bottom-4 right-20 left-5 z-10 rounded-sm border border-white/10 bg-navy/95 p-4 shadow-xl backdrop-blur sm:bottom-6 sm:right-6 sm:left-auto sm:w-[340px]">
             <span className="font-display block text-2xl leading-none text-brass-light">
               &ldquo;
             </span>
