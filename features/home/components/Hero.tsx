@@ -20,8 +20,8 @@ const diferenciais = [
   },
   {
     icon: TrendingUp,
-    titulo: "Foco em investimento",
-    descricao: "Orientação para maximizar seu retorno",
+    titulo: "Inteligência em investimento",
+    descricao: "Investimento para o Futuro",
   },
 ];
 
