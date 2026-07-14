@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { ShieldCheck, Headphones, BarChart3, TrendingUp } from "lucide-react";
 import { SearchBar } from "./SearchBar";
-
 const diferenciais = [
   {
     icon: ShieldCheck,
@@ -24,7 +23,6 @@ const diferenciais = [
     descricao: "Investimento para o Futuro",
   },
 ];
-
 export function Hero() {
   return (
     <section className="blueprint-grid relative overflow-hidden bg-navy">
@@ -62,7 +60,6 @@ export function Hero() {
             ))}
           </div>
         </div>
-
         {/* Coluna da foto, colada na borda direita e inferior da seção */}
         <div className="relative -mx-4 sm:-mx-6 lg:mx-0">
           <div className="relative aspect-[4/5] w-full sm:aspect-[3/4] lg:aspect-auto lg:h-full">
@@ -75,7 +72,6 @@ export function Hero() {
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-navy/0 to-navy/0 lg:bg-gradient-to-l lg:from-navy/0 lg:via-navy/0 lg:to-navy/10" />
-
             {/* Cartão de citação, flutuando sobre a foto em qualquer tela */}
             <div className="absolute bottom-4 left-4 right-4 z-10 rounded-sm border border-white/10 bg-navy/95 p-4 shadow-xl backdrop-blur sm:bottom-6 sm:right-6 sm:left-auto sm:w-[350px]">
               <span className="font-display block text-2xl leading-none text-brass-light">
@@ -84,9 +80,14 @@ export function Hero() {
               <p className="font-display -mt-1 text-xs text-white/85 sm:text-sm">
                 Nosso compromisso é transformar planos em conquistas reais.
               </p>
-              <p className="font-display mt-2 text-sm italic text-brass-light">
-                Fontana
-              </p>
+              <div className="mt-2 flex items-center justify-between gap-2">
+                <p className="font-display text-sm italic text-brass-light">
+                  Fontana
+                </p>
+                <p className="font-display text-xs italic text-white/60">
+                  CRECI SP 274725-F
+                </p>
+              </div>
             </div>
           </div>
         </div>
