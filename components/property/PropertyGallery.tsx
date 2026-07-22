@@ -131,17 +131,17 @@ export function PropertyGallery({ imagens, titulo }: { imagens: Imagem[]; titulo
               setTelaCheia(false);
             }}
             aria-label="Fechar"
-            className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 sm:right-6 sm:top-6"
+            className="absolute right-3 top-3 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 sm:right-6 sm:top-6"
           >
             <X size={24} />
           </button>
 
-          <div className="absolute left-1/2 top-3 -translate-x-1/2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white sm:top-6">
+          <div className="absolute left-1/2 top-3 z-20 -translate-x-1/2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white sm:top-6">
             {ativa + 1} / {imagens.length}
           </div>
 
           <div
-            className="relative flex h-full w-full max-w-6xl items-center justify-center"
+            className="relative z-10 flex h-full w-full max-w-6xl items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative h-[85vh] w-full">
