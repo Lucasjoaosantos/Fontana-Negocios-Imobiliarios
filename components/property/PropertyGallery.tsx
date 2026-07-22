@@ -121,7 +121,7 @@ export function PropertyGallery({ imagens, titulo }: { imagens: Imagem[]; titulo
 
       {tela_cheia && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-2 sm:p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-2 backdrop-blur-md sm:p-6"
           onClick={() => setTelaCheia(false)}
         >
           <button
