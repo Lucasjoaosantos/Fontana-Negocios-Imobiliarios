@@ -148,7 +148,7 @@ export default async function ImovelDetalhePage({
               <ShareImovelButton
                 titulo={imovel.titulo}
                 slug={imovel.slug}
-                preco={imovel.preco}
+                preco={imovel.preco ?? undefined}
               />
             </div>
           </div>
