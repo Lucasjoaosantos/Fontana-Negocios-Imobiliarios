@@ -110,7 +110,7 @@ export default function ShareImovelButton({
         >
           <div className="flex items-center justify-between border-b border-ink/10 px-4 py-2.5">
             <span className="font-mono-data text-xs uppercase tracking-[0.15em] text-ink/50">
-              Enviar ao cliente
+              COMPARTILHAR
             </span>
             <button
               onClick={() => setOpen(false)}
