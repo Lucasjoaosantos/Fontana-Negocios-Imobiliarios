@@ -5,6 +5,7 @@ import { getImovelPorSlug } from "@/services/imoveis";
 import { PropertyGallery } from "@/components/property/PropertyGallery";
 import { Badge } from "@/components/ui/Badge";
 import { formatarPreco, rotuloOperacao, linkWhatsapp } from "@/lib/utils";
+import ShareImovelButton from "@/components/ShareImovelButton";
 
 export default async function ImovelDetalhePage({
   params,
@@ -129,7 +130,7 @@ export default async function ImovelDetalhePage({
   </div>
 )}
 
-<a
+
   href={linkWhatsapp(mensagemWhatsapp)}
   target="_blank"
   rel="noopener noreferrer"
@@ -141,6 +142,14 @@ export default async function ImovelDetalhePage({
             <p className="mt-3 text-center text-xs text-ink/40">
               Fale direto com um corretor sobre este imóvel específico.
             </p>
+
+            <div className="mt-4 flex justify-center border-t border-ink/10 pt-4">
+              <ShareImovelButton
+                titulo={imovel.titulo}
+                slug={imovel.slug}
+                preco={imovel.preco}
+              />
+            </div>
           </div>
         </div>
       </div>
