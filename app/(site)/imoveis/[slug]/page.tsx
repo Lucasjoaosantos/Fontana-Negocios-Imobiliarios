@@ -131,7 +131,7 @@ export default async function ImovelDetalhePage({
               </div>
             )}
 
-            
+            <a
               href={linkWhatsapp(mensagemWhatsapp)}
               target="_blank"
               rel="noopener noreferrer"
