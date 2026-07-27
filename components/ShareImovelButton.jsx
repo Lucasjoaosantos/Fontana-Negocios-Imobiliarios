@@ -26,7 +26,7 @@ export default function ShareImovelButton({
   titulo = "Villas Damha Impper",
   slug = "villas-damha-impper-ft0004",
   preco = 933000,
-  url,
+  url = undefined,
 }) {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
