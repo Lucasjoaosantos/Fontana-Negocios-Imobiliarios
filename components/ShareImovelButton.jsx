@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Share2, Copy, Check, MessageCircle, Mail, X } from "lucide-react";
+import { Share2, Copy, Check, MessageCircle, X } from "lucide-react";
 
 /**
  * Botão de compartilhamento de imóvel — Fontana Negócios Imobiliários.
@@ -91,13 +91,6 @@ export default function ShareImovelButton({
     setOpen(false);
   }
 
-  function handleEmail() {
-    const subject = encodeURIComponent(titulo);
-    const body = encodeURIComponent(`${shareText}\n\n${propertyUrl}`);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
-    setOpen(false);
-  }
-
   return (
     <div ref={wrapperRef} className="relative inline-block">
       <button
@@ -134,7 +127,6 @@ export default function ShareImovelButton({
             onClick={handleCopy}
           />
           <MenuItem icon={<MessageCircle size={16} />} label="Enviar por WhatsApp" onClick={handleWhatsApp} />
-          <MenuItem icon={<Mail size={16} />} label="Enviar por e-mail" onClick={handleEmail} />
           {canNativeShare && (
             <MenuItem icon={<Share2 size={16} />} label="Mais opções..." onClick={handleNativeShare} />
           )}
