@@ -131,7 +131,7 @@ export default async function ImovelDetalhePage({
 )}
 
 
-  href={linkWhatsapp(mensagemWhatsapp)}
+ href={linkWhatsapp(mensagemWhatsapp)}
   target="_blank"
   rel="noopener noreferrer"
   className="mt-6 flex w-full items-center justify-center rounded-sm bg-[#25D366] px-6 py-3.5 font-display text-sm font-semibold text-white transition-colors hover:brightness-95"
