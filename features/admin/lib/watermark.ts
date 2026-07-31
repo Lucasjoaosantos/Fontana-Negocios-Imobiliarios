@@ -1,6 +1,6 @@
 "use client";
 
-const CAMINHO_LOGO = "/brand/logo-fontana-transparent.png";
+const CAMINHO_LOGO = "/brand/logo-fontana-transparente.png";
 
 function carregarImagem(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
